@@ -32,8 +32,7 @@ El proyecto sigue una estructura estándar para facilitar la escalabilidad y man
 ## 🚧 Instalación y configuración
 
 1. **Clonar el repositorio**:
-   ```bash
-   git clone https://github.com/tu-usuario/moviemanagement.git
+   git clone https://github.com/DiegoParula/MovieManagement.git
    cd moviemanagement
 
 1. **Configurar la base de datos**:
@@ -43,6 +42,9 @@ Modifica el archivo application.properties para incluir tus credenciales y confi
 
 En el caso de que desees utilizar una imagen de docker:
 Ejecutar el docker-compose 
+
+1. **Colección de Postman**:
+La colección de Postman para probar las API de este proyecto se encuentra en la carpeta postman del repositorio. Puedes importar esta colección directamente en Postman para realizar pruebas sobre las rutas expuestas por el sistema.
 
 🔍 Consultas avanzadas
 El proyecto implementa JPA Specifications para permitir consultas dinámicas y avanzadas.
