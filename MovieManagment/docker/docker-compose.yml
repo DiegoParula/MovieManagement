@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_movie_management
+    environment:
+      MYSQL_ROOT_PASSWORD: diegoadmin1
+      MYSQL_DATABASE: movie-management # Base de datos que se creará automáticamente
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      #- ./init:/docker-entrypoint-initdb.d/ # Carpeta con scripts de inicialización opcionales
+
+volumes:
+  mysql_data:

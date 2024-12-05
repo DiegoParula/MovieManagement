@@ -1,0 +1,690 @@
+{
+	"info": {
+		"_postman_id": "0b4cd45a-2072-44a9-a06f-bf3a95c4e0ae",
+		"name": "MovieManagment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27839154"
+	},
+	"item": [
+		{
+			"name": "USER - Obtener todos los usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/users?p=1&limit=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER - Obtener detalles de un usuario por username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/users/john_doe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users",
+						"john_doe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER - Obtener ratings de un usuario por username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/users/john_doe/ratings?p=0&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users",
+						"john_doe",
+						"ratings"
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER - Crear un nuevo usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"diegossparulas\",\n  \"name\": \"Diego Par\",\n  \"password\": \"Securepassword123*\",\n  \"password_repeated\": \"Securepassword123*\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER - Actualizar un usuario por username",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"diegossparulas\",\n  \"name\": \"Diego Updated\",\n  \"password\": \"newSecurepassword123*\",\n  \"password_repeated\": \"newSecurepassword123*\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/1/users/diegossparulas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users",
+						"diegossparulas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER - Eliminar un usuario por username",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/users/diegossparulas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users",
+						"diegossparulas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER - Eliminar todos los usuarios",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER - Paginación y orden",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/users?p=0&limit=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						},
+						{
+							"key": "order",
+							"value": "name,desc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Obtener todas las películas sin filtros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Obtener todas las películas con filtros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies?min_release_year=2000&max_release_year=2023&min_average_rating=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Matrix",
+							"disabled": true
+						},
+						{
+							"key": "genre",
+							"value": "ACTION",
+							"disabled": true
+						},
+						{
+							"key": "min_release_year",
+							"value": "2000"
+						},
+						{
+							"key": "max_release_year",
+							"value": "2023"
+						},
+						{
+							"key": "min_average_rating",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Obtener todas las películas paginadas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies?page=0&size=10&order=title,asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Matrix",
+							"disabled": true
+						},
+						{
+							"key": "genre",
+							"value": "ACTION",
+							"disabled": true
+						},
+						{
+							"key": "min_release_year",
+							"value": "2000",
+							"disabled": true
+						},
+						{
+							"key": "max_release_year",
+							"value": "2023",
+							"disabled": true
+						},
+						{
+							"key": "min_average_rating",
+							"value": "8",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "order",
+							"value": "title,asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Obtener estadísticas de una película por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Obtener calificaciones de una película por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies/1/ratings?page=0&size=5&order=rating",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies",
+						"1",
+						"ratings"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "order",
+							"value": "rating"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Crear una nueva película",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"The Matrix\",\n  \"director\": \"Lana Wachowski\",\n  \"genre\": \"ACTION\",\n  \"release_year\": 1999\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Actualizar una película existente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"The Matrix Reloaded\",\n  \"director\": \"Lana Wachowski\",\n  \"genre\": \"ACTION\",\n  \"release_year\": 2003\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies/26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVIE - Eliminar una película",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/movies/26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"movies",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RATING - Obtener todos los ratings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/ratings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"ratings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RATING - Obtener todos los ratings con parametros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/ratings?p=4&limit=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"ratings"
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "4"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						},
+						{
+							"key": "order",
+							"value": "rating,desc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RATING - Obtener un rating por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/ratings/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"ratings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RATING - Crear un nuevo rating",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"movie_id\": 2,\n  \"username\": \"diegossparulas\",\n  \"rating\": 3\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/1/ratings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"ratings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RATING - Actualizar un rating existente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"movie_id\": 1,\n  \"username\": \"john_doe\",\n  \"rating\": 4\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/1/ratings/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"ratings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RATING - Eliminar un rating por ID ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/1/ratings/64",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"1",
+						"ratings",
+						"64"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
